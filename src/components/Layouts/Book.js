@@ -5,12 +5,12 @@ import classes from './Book.module.scss';
 import Card from '../UI/Card';
 
 const Book = (props) => {
-  const { book, author } = props;
+  const { title, author } = props;
   return (
     <Card>
       <div className={classes.Book}>
         <div className={classes.Book__title}>
-          <span>{book}</span>
+          <span>{title}</span>
         </div>
         <div className={classes.Book__author}>
           <span>{author}</span>
@@ -32,11 +32,11 @@ const Book = (props) => {
 export default Book;
 
 Book.defaultProps = {
-  book: '',
+  title: '',
   author: '',
 };
 
 Book.propTypes = {
-  book: PropTypes.node,
+  title: PropTypes.node,
   author: PropTypes.node,
 };
