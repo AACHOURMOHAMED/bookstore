@@ -22,6 +22,7 @@ Input.defaultProps = {
     value: '',
     placeholder: '',
     onChange: () => {},
+    onclick: () => {},
   },
 };
 
@@ -32,5 +33,6 @@ Input.propTypes = {
     value: PropTypes.node,
     placeholder: PropTypes.node,
     onChange: PropTypes.func,
+    onclick: PropTypes.func,
   }),
 };

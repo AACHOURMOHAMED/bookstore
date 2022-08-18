@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Input from '../UI/Input';
 
 const BookForm = () => {
@@ -12,6 +13,20 @@ const BookForm = () => {
     setAuthor(e.target.value);
   };
 
+  const dispatch = useDispatch();
+
+  const addBook = () => {
+    dispatch({
+      type: 'ADD_BOOK',
+      payload: {
+        id: Math.floor(Math.random()),
+        title: book,
+        author,
+      },
+    });
+    setBook('');
+    setAuthor('');
+  };
   return (
     <form className="form-group">
       <Input
@@ -38,7 +53,7 @@ const BookForm = () => {
           name: '',
           value: 'ADD BOOK',
           placeholder: 'Author',
-          onChange: () => {},
+          onClick: addBook,
         }}
       />
 

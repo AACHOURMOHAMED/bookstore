@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Book from '../components/Layouts/Book';
 import BookForm from '../components/Layouts/BookForm';
 import classes from './Books.module.scss';
 
-const Books = (props) => {
-  const { books } = props;
-
+const Books = () => {
+  const books = useSelector((state) => state.books);
   return (
     <div className={classes.books}>
       {books.map((book) => (
@@ -21,11 +20,3 @@ const Books = (props) => {
 };
 
 export default Books;
-
-Books.defaultProps = {
-  books: [],
-};
-
-Books.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.node),
-};
