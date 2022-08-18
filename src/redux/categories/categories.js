@@ -9,6 +9,6 @@ export default function reducer(state = [], action) {
   }
 }
 
-export const checkBookStatus = () => ({
+export const BookStatus = () => ({
   type: CHECK,
 });
