@@ -1,27 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../../redux/books/books';
 import Input from '../UI/Input';
 import classes from './Book.module.scss';
 import Card from '../UI/Card';
 
 const Book = (props) => {
-  const { title, author } = props;
+  const { book } = props;
+  const dispatch = useDispatch();
+
+  const removeBookfromStore = () => {
+    dispatch(removeBook(book));
+  };
   return (
     <Card>
       <div className={classes.Book}>
         <div className={classes.Book__title}>
-          <span>{title}</span>
+          <span>{book.title}</span>
         </div>
         <div className={classes.Book__author}>
-          <span>{author}</span>
+          <span>{book.author}</span>
         </div>
         <Input
           input={{
             type: 'button',
             name: '',
-            value: 'ADD BOOK',
-            placeholder: 'Author',
-            onChange: () => {},
+            value: 'DELETE BOOK',
+            onClick: removeBookfromStore,
           }}
         />
       </div>
@@ -31,12 +37,18 @@ const Book = (props) => {
 
 export default Book;
 
-Book.defaultProps = {
-  title: '',
-  author: '',
+Book.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    author: PropTypes.string,
+  }),
 };
 
-Book.propTypes = {
-  title: PropTypes.node,
-  author: PropTypes.node,
+Book.defaultProps = {
+  book: {
+    id: 0,
+    title: '',
+    author: '',
+  },
 };
