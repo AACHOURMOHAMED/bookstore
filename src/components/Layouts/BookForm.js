@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../../redux/books/books';
 import Input from '../UI/Input';
 
 const BookForm = () => {
-  const [book, setBook] = useState('');
+  const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const handleBookChange = (e) => {
-    setBook(e.target.value);
+    setTitle(e.target.value);
   };
 
   const handleAuthorChange = (e) => {
@@ -15,25 +17,28 @@ const BookForm = () => {
 
   const dispatch = useDispatch();
 
-  const addBook = () => {
-    dispatch({
-      type: 'ADD_BOOK',
-      payload: {
-        id: Math.floor(Math.random()),
-        title: book,
-        author,
-      },
-    });
-    setBook('');
-    setAuthor('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const book = {
+      id: uuidv4(),
+      title,
+      author,
+      category: `${['Action', 'Fiction', 'Adventure', 'Classics'][Math.floor(Math.random() * ['Action', 'Fiction', 'Adventure', 'Classics'].length)]}`,
+    };
+    if (title.length && author.length) {
+      dispatch(addBook(book));
+      setTitle('');
+      setAuthor('');
+    }
   };
+
   return (
-    <form className="form-group">
+    <form className="form-group" onSubmit={handleSubmit}>
       <Input
         input={{
           type: 'text',
           name: '',
-          value: book,
+          value: title,
           placeholder: 'Book title',
           onChange: handleBookChange,
         }}
@@ -49,11 +54,8 @@ const BookForm = () => {
       />
       <Input
         input={{
-          type: 'button',
-          name: '',
+          type: 'submit',
           value: 'ADD BOOK',
-          placeholder: 'Author',
-          onClick: addBook,
         }}
       />
 

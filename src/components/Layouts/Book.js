@@ -11,7 +11,7 @@ const Book = (props) => {
   const dispatch = useDispatch();
 
   const removeBookfromStore = () => {
-    dispatch(removeBook(book));
+    dispatch(removeBook(book.item_id));
   };
   return (
     <Card>
@@ -21,6 +21,9 @@ const Book = (props) => {
         </div>
         <div className={classes.Book__author}>
           <span>{book.author}</span>
+        </div>
+        <div className={classes.Book__category}>
+          <span>{book.category}</span>
         </div>
         <Input
           input={{
@@ -37,18 +40,20 @@ const Book = (props) => {
 
 export default Book;
 
-Book.propTypes = {
-  book: PropTypes.shape({
-    id: PropTypes.number,
-    title: PropTypes.string,
-    author: PropTypes.string,
-  }),
-};
-
 Book.defaultProps = {
   book: {
-    id: 0,
+    item_id: '',
     title: '',
     author: '',
+    category: '',
   },
+};
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    item_id: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    category: PropTypes.string,
+  }),
 };
