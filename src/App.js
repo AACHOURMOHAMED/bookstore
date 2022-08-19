@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Books books={[]} />} />
+          <Route path="/" element={<Books />} />
           <Route path="/catg" element={<Categories />} />
         </Routes>
       </BrowserRouter>
