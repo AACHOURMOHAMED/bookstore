@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllBooks } from '../../api/api';
+import getAllBooks from '../../api/api';
 
 const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/57zT2i7HGCQsfHmEGwcN/books';
-
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOKS = 'bookStore/books/GET_BOOKS';
@@ -49,14 +47,13 @@ const convertDataObjectToArray = (data) => {
 
 export const getBooks = () => async (dispatch) => {
   const data = await getAllBooks();
-  console.log(data, 'data');
   const convertedData = convertDataObjectToArray(data);
   dispatch({ type: GET_BOOKS, payload: convertedData });
 };
 
 // remove book
 export const removeBook = createAsyncThunk(REMOVE_BOOK, async (id) => {
-  await axios.delete(`${BASE_URL}/${id}`).then((response) => console.log(response));
+  await axios.delete(`${BASE_URL}/${id}`);
   return { id };
 });
 const reducer = (state = initialState, action) => {
