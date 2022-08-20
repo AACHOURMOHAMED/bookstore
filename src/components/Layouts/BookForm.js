@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../../redux/books/books';
+import classes from './BookForm.module.scss';
 import Input from '../UI/Input';
 
 const BookForm = () => {
@@ -33,7 +34,7 @@ const BookForm = () => {
   };
 
   return (
-    <form className="form-group" onSubmit={handleSubmit}>
+    <form className={classes['form-group']} onSubmit={handleSubmit}>
       <Input
         input={{
           type: 'text',
@@ -52,12 +53,9 @@ const BookForm = () => {
           onChange: handleAuthorChange,
         }}
       />
-      <Input
-        input={{
-          type: 'submit',
-          value: 'ADD BOOK',
-        }}
-      />
+      <button type="submit" className={classes.add}>
+        Add Book
+      </button>
 
     </form>
   );
