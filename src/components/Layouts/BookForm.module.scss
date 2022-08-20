@@ -1,12 +1,19 @@
-.book {
+.form-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: #fafafa;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  gap: 1rem;
+  justify-content: space-between;
+  height: 10.625rem;
+
+  .add {
+    width: 100%;
+    height: 45px;
+    padding: 0.801rem 1.188rem 0.886rem 1.375rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 3px;
+    background-color: #0290ff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
 }

@@ -6,9 +6,21 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
   nav {
     display: flex;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
     gap: 40px;
     width: 100%;
     height: 100%;
@@ -20,7 +32,7 @@
     justify-content: center;
     font-size: 2rem;
     font-weight: bold;
-    color: rgb(26, 139, 231);
+    color: #0290ff;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
@@ -52,7 +64,7 @@
         cursor: pointer;
 
         &:hover {
-          color: rgb(26, 139, 231);
+          color: #0290ff;
         }
       }
 
@@ -62,15 +74,16 @@
     }
   }
 
-  .user {
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(26, 139, 231);
+  .oval {
+    border: solid 1px #e8e8e8;
+    padding: 12px 15px;
+    border-radius: 50%;
+    margin-left: auto;
     cursor: pointer;
 
-    &:hover {
-      transform: scale(1.1);
+    .fa {
+      font-size: 18px;
+      color: #0290ff;
     }
   }
 }

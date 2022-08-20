@@ -1,12 +1,124 @@
-.book {
+.Book {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 350px;
   height: 100%;
-  background-color: #fafafa;
+  gap: 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+
+  .Book__category {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #121212;
+    opacity: 0.5;
+  }
+
+  .Book__title {
+    font-size: 1.375rem;
+    font-weight: bold;
+    color: #121212;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+  }
+
+  .Book__author {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #4386bf;
+    cursor: pointer;
+  }
+
+  .inputs {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    .Book__btn {
+      font-size: 0.875rem;
+      font-weight: 300;
+      background-color: transparent;
+      border-right: 1px solid #e8e8e8;
+      border-left: none;
+      border-top: none;
+      border-bottom: none;
+      padding: 0 20px;
+      color: #4386bf;
+      cursor: pointer;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.Chart {
+  display: flex;
+  align-items: center;
+
+  .Oval-2 {
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 5px solid #307bbe;
+    border-left-color: #e8e8e8;
+    rotate: 45deg;
+    border-radius: 50%;
+    margin-right: 1.3rem;
+  }
+
+  .Chart__value {
+    display: flex;
+    flex-direction: column;
+
+    .perstegae {
+      font-size: 2rem;
+    }
+
+    .completed {
+      opacity: 0.5;
+      font-size: 1.4rem;
+      color: #121212;
+    }
+  }
+}
+
+.chapter {
+  .chapter__title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.51rem;
+
+    .Current__Chapter {
+      opacity: 0.5;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #121212;
+    }
+
+    .chapter {
+      span {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: #121212;
+        letter-spacing: -0.4px;
+        margin-right: 10px;
+      }
+    }
+
+    .update {
+      font-size: 0.813rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 1px;
+      padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+      background-color: #0290ff;
+      border: none;
+    }
+  }
 }

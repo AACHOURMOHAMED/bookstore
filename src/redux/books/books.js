@@ -19,6 +19,7 @@ export const addBook = createAsyncThunk(
       title: book.title,
       author: book.author,
       category: book.category,
+      value: book.value,
     });
     return {
       newBook: {
@@ -26,6 +27,7 @@ export const addBook = createAsyncThunk(
         author: book.author,
         title: book.title,
         category: book.category,
+        value: book.value,
       },
     };
   },

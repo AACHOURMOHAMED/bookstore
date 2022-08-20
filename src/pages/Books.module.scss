@@ -1,7 +1,19 @@
 .books {
   display: flex;
   flex-direction: column;
-  width: 81%;
+  justify-content: space-between;
+  max-width: 1200px;
   margin: 0 auto;
   height: 100%;
+  gap: 1rem;
+  border-radius: 10px;
+
+  .addbooks {
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+  }
 }
